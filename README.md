@@ -92,11 +92,6 @@ ctypedef struct {
 2. Posicionamento no offset encontrado  
 3. Busca sequencial em até `BLOCO_INDICE * 2` registros  
 
-✅ **Vantagens:**  
-- Menor uso de disco  
-- Boa performance (O(log n + k))  
-- Ideal para grandes volumes de produtos  
-
 ---
 
 ### **2.2 compras_inv.idx (Índice Inverso)**
@@ -124,24 +119,7 @@ cstruct EntradaPedido {
 3. Leitura das posições associadas  
 4. Acesso direto aos itens do pedido  
 
-✅ **Vantagens:**  
-- Recuperação de pedidos completos com uma única busca  
-- Ideal para pedidos com múltiplos produtos  
-- Acesso direto e eficiente  
-
 ---
-
-## ⚖️ 3. Comparação dos Índices
-
-| Característica | Índice Parcial (Produtos) | Índice Inverso (Compras) |
-|----------------|---------------------------|---------------------------|
-| Tipo | Esparso | Denso / Agrupado |
-| Densidade | 1 entrada / 3 registros | 1 entrada / pedido |
-| Tamanho | Fixo (17 bytes) | Variável (12 + 8n bytes) |
-| Busca | Binária + Sequencial | Sequencial / Binária |
-| Acesso | 1 registro | Múltiplos registros |
-| Uso de memória | Baixo | Médio a Alto |
-| Velocidade | O(log n + k) | O(n) ou O(log n) |
 
 ---
 
